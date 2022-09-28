@@ -11,6 +11,11 @@ body {
   color: white;
 }
 
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace; 
@@ -18,18 +23,20 @@ code {
 
 #root {
   height: 100%;
+  width: 100%;
   position: fixed;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-
-.icons-spacer {
-  height: 1.5rem;
-  background-color: aliceblue;
+#main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.content-container, .projects-container {
+
+#content-container, #projects-container {
   border: 1px solid white;
   width: 90%;
   max-height: 40%;
@@ -37,8 +44,45 @@ code {
   overflow-y: scroll;
   padding: 0.5rem;
 }
-.projects-container {
+.light-mode #content-container, .light-mode #projects-container {
+  border: 1px solid black;
+}
+
+#projects-container {
   max-height: 32%;
+  margin-bottom: 1rem;
+}
+
+#content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#content-container h3, #projects-container h3 {
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+  align-self: flex-start;
+}
+
+#projects-container div {
+  margin-left: 0.2rem;
+}
+
+.content-image {
+  max-width: 100%;
+  /* max-height: 80%; */
+}
+
+p.content-target {
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.active-project {
+  font-weight: 1000;
+  transition: font-weight 0.4s ease-in-out;
 }
 
 @keyframes dissolvein {
@@ -64,16 +108,37 @@ h2 {
   font-weight: 500;
 }
 
-.icons-tray {
+footer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  bottom: 0%;
+  right: 0%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+#mode-tray {
+  padding-left: 0.567rem;
+}
+#icons-tray {
   display: flex;
   justify-content: space-between;
   width: 6.5rem;
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;  
+  padding-right: 0.567rem;
 }
 
+#icons-tray a {
+  color: white;
+}
+.light-mode #icons-tray a {
+  color: black;
+}
 
+#light-mode-icon {
+  display: none;
+}
 
 nav {
   max-width: 100%;
@@ -81,7 +146,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 1rem;
 }
 
 nav h1, nav h2 {
@@ -90,8 +155,9 @@ nav h1, nav h2 {
 .nav-tray {
   display: flex;
   min-width: 45%;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  gap: 0.5rem;
 }
 .nav-button {
   border: 0.05rem solid white;
@@ -104,42 +170,72 @@ nav h1, nav h2 {
   display: flex;
   align-items: center;
 }
-
-.active-project {
-  font-weight: 1000;
-  transition: font-weight 0.4s ease-in-out;
+.light-mode .nav-button {
+  border-color: black;
+  color: black;
 }
 
-.content-image {
-  max-width: 100%;
-}
-
+/* Background Textures + Animation */
 @keyframes bgr-idle {
   50% {
     transform: translate(10px, 10px);
   }
   100% {
-    transform: translate(5px, 5px); 
+    transform: translate(0px, 0px); 
   }
 }
 .bgr-animated {
   z-index: -1;
-  opacity: 20%;
+  opacity: 25%;
   position: absolute;
-  height: 50px;
+  width: 100%;
+  /* width: 100vw;
+  height: 100vh; */
+  /*height: 50px;
   width: 50px;
-  background-color: blue;
+  background-color: blue; 
+  background-image: url('../src/assets/Asset_1x1000.png'); */
   animation: 3s ease-in-out infinite bgr-idle;
 }
-
-.two {
-  left: 100px;
+.light-mode .bgr-animated {
+  opacity: 2%;
 }
 
-.three {
-  left: 200px;
+/* Media Breakpoints */
+@media screen and (min-width: 768) {
+  
 }
+@media screen and (min-width: 1024px) {
+  #main-container {
+    flex-direction: row;
+    height: 80%;
+  }
 
-.four {
-  left: 300px;
+  #content-container, #projects-container {
+    width: 47%;
+    max-height: 100%;
+    overflow-y: initial;
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+
+  footer {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  #mode-tray {
+    padding-left: 1rem;
+  }
+  #icons-tray {
+    display: flex;
+    justify-content: space-between;
+    width: 6.5rem;
+    padding-right: 1rem;
+  }
+
+  .bgr-animated {
+    display: none;
+  }
 }

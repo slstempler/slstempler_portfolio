@@ -5,7 +5,7 @@ export function Projects({content = 'landing', setActiveProject}) {
     const activeStyles = () => {
         const active = document.getElementsByClassName('active-project');
         active.length && active[0].classList.toggle('active-project');
-        if(content !== 'landing') {
+        if(content !== 'landing' && content !== 'contact') {
             document.getElementById(content).classList.toggle('active-project');
         }
     }
@@ -13,8 +13,8 @@ export function Projects({content = 'landing', setActiveProject}) {
     useEffect(activeStyles, [content])
 
     return (
-        <div className="projects-container">
-            <h4>Projects & Works</h4>
+        <div id="projects-container">
+            <h3>Projects & Works</h3>
             <div id="reddit">
                 <p onClick={(e) => setActiveProject('reddit')}>RE:ddit - a Reddit Client</p>
                 <i>React + Redux + CSS</i>
@@ -23,9 +23,10 @@ export function Projects({content = 'landing', setActiveProject}) {
                 <p id="stempler-realty" onClick={(e) => setActiveProject('stempler-realty')}>Stempler Realty Group</p>
                 <i>Brand Identity + Logo Design</i>
             </div>
-            
-            <p>This Website</p>
-            <i>React + CSS</i>
+            <div id="portfolio-site" onClick={(e) => setActiveProject('portfolio-site')}>
+                <p>This Website</p>
+                <i>React + CSS</i>
+            </div>
         </div>
     )
 }
