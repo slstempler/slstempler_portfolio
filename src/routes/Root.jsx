@@ -3,7 +3,7 @@ import { Content } from "../components/Content";
 import { Projects } from "../components/Projects";
 import { BsGithub, BsLinkedin, BsBehance, BsSun, BsMoon } from 'react-icons/bs';
 import { IconContext } from 'react-icons'
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import '../index.css'
 import BGRasset from "../assets/Asset_2x1000.png";
 
@@ -18,9 +18,12 @@ function debounce(fn, ms) {
     }
   }
 
-export default function Root() {
+export default function Root({routeContent = 'landing'}) {
     const [activeProject, setActiveProject] = useState('landing');
     const [darkMode, setDarkMode] = useState(true);
+
+    const navigate = useNavigate();
+    const params = useParams();
 
     const toggleMode = (e) => {
         e.preventDefault();
@@ -54,16 +57,28 @@ export default function Root() {
     }
 
 
-
+    useEffect(() => setActiveProject(routeContent), [routeContent]);
     useEffect(resizeWindow, []);
+    useEffect(() => params && setActiveProject(params.content), [params])
 
     return (
         <>
             <nav>
-                <h1 onClick={(e) => setActiveProject('landing')}>Sean Stempler</h1>
+                <h1 onClick={(e) => {
+                    setActiveProject("landing");
+                    navigate("/");
+                 }}>Sean Stempler</h1>
                 <div className="nav-tray">
-                    <button className="nav-button" onClick={(e) => setActiveProject('landing')}>About</button>
-                    <button className="nav-button" onClick={(e) => setActiveProject('contact')}>Contact</button>
+                    {/* <button className="nav-button" onClick={(e) => setActiveProject('landing')}>About</button>
+                    <button className="nav-button" onClick={(e) => setActiveProject('contact')}>Contact</button> */}
+                    <button className="nav-button" onClick={(e) => {
+                        setActiveProject('landing');
+                        navigate("/");
+                    }}>About</button>
+                    <button className="nav-button" onClick={(e) => {
+                        setActiveProject('contact');
+                        navigate("/contact");
+                    }}>Contact</button>
                 </div>
             </nav>
             <div id="main-container">

@@ -1,6 +1,6 @@
 import './App.css';
 import './index.css'
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
 import ErrorPage from './routes/error-page';
 
@@ -9,18 +9,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage/>,
-    children: [
-      {
-        path: "/projects",
-        element: (<div><p>heh project heh</p><Outlet /></div>),
-        children: [
-          {
-            path: "/projects/:projectname",
-            element: <p>hehe project NAME</p>
-          }
-        ]
-      }
-    ]
+  },
+  {
+    path: "/projects",
+    element: <Root />
+  },
+  {
+    path: "/projects/:content",
+    element: <Root />
+  },
+  {
+    path: "/contact",
+    element: <Root routeContent="contact"/>
   }
 ])
 
