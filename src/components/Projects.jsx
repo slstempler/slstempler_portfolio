@@ -18,43 +18,44 @@ export function Projects({content = 'landing', setActiveProject}) {
     return (
         <div id="projects-container">
             <h3>Projects & Works</h3>
-            <div id="reddit">
-                <p onClick={(e) => {
+            <button id="reddit" className="projects-project" aria-label="RE:ddit Project Active Focus" onClick={(e) => {
                     setActiveProject('reddit');
                     navigate("/projects/reddit");
-                }}>RE:ddit - a Reddit Client</p>
-                <i>React + Redux + CSS</i>
-            </div>
+                }}>
+                <p className="projects-title">RE:ddit - a Reddit Client</p>
+                <i className="projects-description" >React + Redux + CSS</i>
+            </button>
             <hr/>
-            <div id="commarch">
-                <p onClick={(e) => {
+            <button id="commarch" className="projects-project" aria-label="commARCH Project Active Focus" onClick={(e) => {
                     setActiveProject('commarch');
                     navigate("/projects/commarch");
-                }}>commARCH Magazine - Head of Podcasts</p>
-                <i>Premiere + After Effects</i>
-            </div>
+                }}>
+                <p className="projects-title">commARCH Magazine - Head of Podcasts</p>
+                <i className="projects-description">Premiere + After Effects</i>
+            </button>
             <hr/>
-            <div id="moasis">
-                <p onClick={(e) => {
+            <button id="moasis" className="projects-project" aria-label="Moasis Project Active Focus" onClick={(e) => {
                     setActiveProject('moasis');
                     navigate("/projects/moasis");
-                }}>Moasis Global - Creative Specialist</p>
-                <i>Photoshop + Illustrator + Celtra</i>
-            </div>
+                }}>
+                <p className="projects-title">Moasis Global - Creative Specialist</p>
+                <i className="projects-description">Photoshop + Illustrator + Celtra</i>
+            </button>
             <hr/>
-            <div id="stempler-realty">
-                <p id="stempler-realty" onClick={(e) => {
+            <button id="stempler-realty" className="projects-project" aria-label="Stempler Realty Project Active Focus" onClick={(e) => {
                     setActiveProject('stempler-realty');
                     navigate("/projects/stempler-realty");
-                }}>Stempler Realty Group</p>
-                <i>Brand Identity + Logo Design</i>
-            </div>
+                }}>
+                <p className="projects-title">Stempler Realty Group</p>
+                <i className="projects-description">Brand Identity + Logo Design</i>
+            </button>
             <hr/>
-            <div id="portfolio-site" onClick={(e) => {
+            <div id="portfolio-site" className="projects-project" aria-label="Portfolio Project Active Focus" onClick={(e) => {
                     setActiveProject('portfolio-site');
                     navigate("/projects/portfolio-site");
-                }}><p>This Website</p>
-                <i>React + CSS</i>
+                }}>
+                <p className="projects-title">This Website</p>
+                <i className="projects-description">React + CSS</i>
             </div>
         </div>
     )

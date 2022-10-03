@@ -27,9 +27,8 @@ export function Content({content, darkMode}) {
     useEffect(animateContent, [content]);
 
     return (
-        <div className="content-container" id="content-container">
-            {(content === 'landing' || content === 'portfolio-site' || content === undefined
-              || params === 'landing' || params === 'portfolio-site') &&
+        <div className="content-container styled-scrollbar" id="content-container">
+            {(content === 'landing' || params === 'landing' || content === undefined) &&
                 <>
                     <h2 className="content-target">Sean Stempler</h2>
                     <p className="content-target">Hi! I'm Sean, and I work to transform creative visions into creative realities. My varied background reaches everything from video editing to web design and everything in between, so I have the toolkit to tackle the needs of just about any project.</p>
@@ -77,6 +76,21 @@ export function Content({content, darkMode}) {
                     <p className="content-target">Design work with a variety of clients working with a mobile advertising geolocation services provider.
                         Built interactive ad creative packages including Rich Media and video for a wide variety of formats targeted at both mobile and tablet. Clients ranged
                         from entertainment industry to state and local governments, political campaigns, industry conferences and more.</p>
+                </>
+            }
+            {(content === 'portfolio-site' || params === 'portfolio-site') &&
+                <>
+                    <h3 className="content-target">Portfolio Site</h3>
+                    <p className="content-target">Originally developed as part of a Codecademy Front End Development course, this site itself was built using React and vanilla CSS utilizing
+                    a mobile-first paradigm and was designed and prototyped with Figma.
+                    <br /><br />
+                    Prior versions can be found below:</p>
+                    <hr />                    
+                    <IconContext.Provider value={{size: '1.2em', className: 'content-target content-inline'}} >
+                        <a href="https://slstempler.github.io/slstempler_portfolio-v1/" target="blank" rel="noreferrer" className="repo-link content-inline content-target">
+                            <span className="content-inline content-target">Portfolio Version 1</span> <BsGithub />
+                        </a>
+                    </IconContext.Provider>
                 </>
             }
             {(content === 'contact' || params === 'contact') && 

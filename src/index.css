@@ -66,12 +66,25 @@ code {
   align-self: flex-start;
 }
 
-#projects-container div {
+#projects-container .projects-project {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0px;
   margin-left: 0.2rem;
 }
+#projects-container .projects-title {
+  margin-top: 0.2rem;
+}
+#projects-container .projects-description {
+  padding-bottom: 0.2rem;
+}
 
-
-#projects-container hr {
+#projects-container hr, #content-container hr {
   max-width: 25rem;
   border: 0;
   height: 1px;
@@ -79,7 +92,15 @@ code {
   justify-self: flex-start;
   background-image: linear-gradient(to right, rgba(255,255,255,0.75), rgba(0,0,0,0));
 }
-.light-mode #projects-container hr {
+
+.light-mode #projects-container hr, .light-mode #content-container hr {
+  background-image: linear-gradient(to right, rgba(0,0,0,.4), rgba(0,0,0,0.75), rgba(0,0,0,0));
+}
+#content-container hr {
+  min-width: 10rem;
+  background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));
+}
+.light-mode #content-container hr {
   background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
 }
 
@@ -87,16 +108,13 @@ code {
   margin-bottom: 1rem;
 }
 
-#projects-container p {
-  margin-top: 0.5em;
-}
 
 .content-image {
   max-width: 100%;
   /* max-height: 80%; */
 }
 
-p.content-target {
+p.content-target, span.content-target {
   margin-left: 0.2rem;
   margin-right: 0.2rem;
   margin-bottom: 0.5rem;
@@ -115,6 +133,11 @@ p.content-target {
   color: black;
 }
 
+.content-inline {
+  display: inline;
+  vertical-align: middle;
+  text-decoration: none;
+}
 
 @keyframes dissolvein {
   from {
@@ -143,11 +166,13 @@ footer {
   display: flex;
   position: absolute;
   width: 100%;
+  min-height: 2%;
   bottom: 0%;
   right: 0%;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 0.5rem;
+  
 }
 
 #mode-tray {
@@ -173,6 +198,7 @@ footer {
 
 nav {
   max-width: 100%;
+  max-height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -195,20 +221,26 @@ nav h1, nav h2 {
   gap: 0.5rem;
 }
 .nav-button {
-  border: 0.05rem solid white;
+  border: 1.5px solid white;
   border-radius: 0.6rem;
-  background: none;
+  background-color:rgba(255, 255, 255, 0);
   color: white;
   height: 2rem;
   padding: 1rem;
   text-align: center;
   display: flex;
   align-items: center;
+  transition: background-color .7s ease-in-out;
+  transition: color .8s ease-out;
 }
 .light-mode .nav-button {
   border-color: black;
+  background-color:rgba(255, 255, 255, 0);
   color: black;
+  transition: background-color .7s ease-in-out;
+  transition: color .8s ease-out;
 }
+
 
 /* Background Textures + Animation */
 @keyframes bgr-idle {
@@ -238,9 +270,38 @@ nav h1, nav h2 {
 }
 
 /* Media Breakpoints */
-@media screen and (min-width: 768) {
-  
+@media screen and (min-width: 768px) {
+  /* .styled-scrollbar {
+    --scrollbar-foreground: rgba(255,255,255,0.9);
+    --scrollbar-background: rgba(255,255,255,0.2);
+    scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+  }
+  .styled-scrollbar::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+  .styled-scrollbar::-webkit-scrollbar-button {
+    display: none;
+  }
+  .styled-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-foreground);
+    width: 0.7rem;
+    border-radius: 5px;
+  }
+  .styled-scrollbar::-webkit-scrollbar-track {
+    background: var(--scrollbar-background);
+  }
+  .styled-scrollbar::-webkit-scrollbar-track-piece {
+  }
+  .styled-scrollbar::-webkit-scrollbar-corner {
+
+  } */
+
+  iframe.content-target {
+    width: 30rem;
+    height: 16rem;
+  }
 }
+
 @media screen and (min-width: 1024px) {
   nav h1 {
     font-size: 1.5rem;
@@ -264,8 +325,36 @@ nav h1, nav h2 {
     font-size: 1.7rem;
   }
   
-  #projects-container div {
+  #projects-container .projects-project {
     font-size: 1.1rem;
+    transition: text-shadow 1s ease-in-out;
+  }
+
+  #projects-container .projects-project:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+    /* animation: textglow 1s ease-in-out forwards; */
+  }
+  .light-mode #projects-container .projects-project:hover {
+    text-shadow: 0 0 20px rgba(25, 25, 25, 0.9);
+  }
+
+  @keyframes textglow {
+    0% {
+      text-shadow: 0 0 0 #fff;
+    }
+    25% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    }
+    100% {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  #content-container a {
+    max-height: 60%;
+  }
+  #content-container img {
+    max-height: 100%;
   }
 
   footer {
@@ -282,6 +371,19 @@ nav h1, nav h2 {
     justify-content: space-between;
     width: 6.5rem;
     padding-right: 1rem;
+  }
+
+  .nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .light-mode .nav-button:hover {
+    background-color: rgba(25, 25, 25, 0.4);
+    color: white;
+  }
+
+  #content-container hr {
+    min-width: 60%;
+    max-width: 95%;
   }
 
 }

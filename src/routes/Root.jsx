@@ -3,7 +3,7 @@ import { Content } from "../components/Content";
 import { Projects } from "../components/Projects";
 import { BsGithub, BsLinkedin, BsBehance, BsSun, BsMoon } from 'react-icons/bs';
 import { IconContext } from 'react-icons'
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import '../index.css'
 import BGRasset from "../assets/Asset_2x1000.png";
 
@@ -30,13 +30,13 @@ export default function Root({routeContent = 'landing'}) {
         setDarkMode(!darkMode);
 
         if(darkMode){
-            document.getElementById('light-mode-icon').style.display = 'none';
-            document.getElementById('dark-mode-icon').style.display = 'initial';
+            document.getElementById('dark-mode-icon').style.display = 'none';
+            document.getElementById('light-mode-icon').style.display = 'initial';
             document.querySelector("body").classList.toggle('light-mode');
         }
         else if(!darkMode){
-            document.getElementById('light-mode-icon').style.display = 'initial';
-            document.getElementById('dark-mode-icon').style.display = 'none';
+            document.getElementById('dark-mode-icon').style.display = 'initial';
+            document.getElementById('light-mode-icon').style.display = 'none';
             document.querySelector("body").classList.toggle('light-mode');
         }
         else {
@@ -44,11 +44,13 @@ export default function Root({routeContent = 'landing'}) {
         }
     }
 
+    // helper function for resizeWindow()
     const handleResize = () => {
         document.body.style.height = window.innerHeight + 'px';
         document.querySelector('#root').style.height = window.innerHeight + 'px';
     }
 
+    // ensures window fits within viewport even considering nonstandard mobile browser layouts
     const resizeWindow = () => {
         const debouncedResize = debounce(handleResize, 1000);
         
@@ -85,23 +87,23 @@ export default function Root({routeContent = 'landing'}) {
                 <Content content={activeProject} darkMode={darkMode}/>
                 <Projects content={activeProject} setActiveProject={setActiveProject} />
             </div>
-            <div id="testing-routes">
+            {/* <div id="testing-routes">
                 <Outlet />
-            </div>
+            </div> */}
             {/* <div className="icon-spacer"><p>h</p><p>h</p><p>h</p></div> */}
             <footer>
                 <div id="mode-tray">
                     <IconContext.Provider value={{size: "1.5em"}}>
-                        <BsSun id="light-mode-icon" onClick={toggleMode}/>
-                        <BsMoon id="dark-mode-icon" onClick={toggleMode}/>
+                        <BsSun id="light-mode-icon" title="Toggle Dark Mode" onClick={toggleMode}/>
+                        <BsMoon id="dark-mode-icon" title="Toggle Dark Mode" onClick={toggleMode}/>
                     </IconContext.Provider>
                     
                 </div>
                 <div id="icons-tray">
                     <IconContext.Provider value={{size: "1.5em", className: "social-icons"}}>
-                        <a href="https://github.com/slstempler" target="_blank" rel="noreferrer"><BsGithub/></a>
-                        <a href="https://www.linkedin.com/in/slstempler/" target="_blank" rel="noreferrer"><BsLinkedin/></a>
-                        <a href="https://www.behance.net/slstempler" target="_blank" rel="noreferrer"><BsBehance/></a>
+                        <a href="https://github.com/slstempler" target="_blank" rel="noreferrer" aria-label="GitHub Profile"><BsGithub/></a>
+                        <a href="https://www.linkedin.com/in/slstempler/" target="_blank" rel="noreferrer" aria-label="LinkedIn Profile"><BsLinkedin/></a>
+                        <a href="https://www.behance.net/slstempler" target="_blank" rel="noreferrer" aria-label="Behance Profile"><BsBehance/></a>
                     </IconContext.Provider>
                 </div>
             </footer>
