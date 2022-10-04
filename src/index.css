@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-
 body {
   margin: 0;
   font-family: "Work Sans", 'Segoe UI', 'Roboto', 'Oxygen',
@@ -49,7 +47,7 @@ code {
 }
 
 #projects-container {
-  max-height: 32%;
+  max-height: 40%;
   margin-bottom: 1rem;
 }
 
@@ -60,16 +58,18 @@ code {
   align-items: center;
 }
 
-#content-container h3, #projects-container h3 {
+.content-title, #projects-header {
   margin-top: 0.2rem;
   margin-left: 0.2rem;
   align-self: flex-start;
 }
 
-#projects-container .projects-project {
+/* Handles style clearing for <button> elements including on projects field and in navbar */
+#projects-container .projects-project, #nav-logo {
   font-family: inherit;
   font-weight: inherit;
   font-style: inherit;
+  font-size: 1rem;
   color: inherit;
   background: none;
   border: none;
@@ -77,6 +77,8 @@ code {
   padding: 0px;
   margin-left: 0.2rem;
 }
+
+
 #projects-container .projects-title {
   margin-top: 0.2rem;
 }
@@ -108,10 +110,15 @@ code {
   margin-bottom: 1rem;
 }
 
+#nav-logo {
+  font-size: 1.2rem;
+  margin: 0rem;
+  font-weight: 300;
+  align-self: center;
+}
 
 .content-image {
   max-width: 100%;
-  /* max-height: 80%; */
 }
 
 p.content-target, span.content-target {
@@ -120,9 +127,9 @@ p.content-target, span.content-target {
   margin-bottom: 0.5rem;
 }
 
-.active-project {
+.active-project .projects-title, .active-project .projects-description {
   font-weight: 1000;
-  transition: font-weight 0.4s ease-in-out;
+  transition: font-weight 0.1s ease-in;
 }
 
 #content-container .repo-link {
@@ -159,7 +166,7 @@ h1 {
 
 h2 {
   font-family: "Work Sans", sans-serif;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 footer {
@@ -204,15 +211,9 @@ nav {
   align-items: center;
   flex-wrap: nowrap;
   padding: 0.2rem 1rem;
+  margin: 0.6rem 0rem 0rem 0rem;
 }
 
-nav h1 {
-  margin-bottom: 0.5rem;
-}
-
-nav h1, nav h2 {
-  font-size: 1.2rem
-}
 .nav-tray {
   display: flex;
   min-width: 45%;
@@ -243,14 +244,14 @@ nav h1, nav h2 {
 
 
 /* Background Textures + Animation */
-@keyframes bgr-idle {
+/* @keyframes bgr-idle {
   50% {
     transform: translate(10px, 10px);
   }
   100% {
     transform: translate(0px, 0px); 
   }
-}
+} */
 .bgr-animated {
   display: none;
   z-index: -1;
@@ -258,15 +259,102 @@ nav h1, nav h2 {
   position: absolute;
   width: 100%;
   /* width: 100vw;
-  height: 100vh; */
-  /*height: 50px;
+  height: 100vh;
+  height: 50px;
   width: 50px;
   background-color: blue; 
-  background-image: url('../src/assets/Asset_1x1000.png'); */
-  animation: 3s ease-in-out infinite bgr-idle;
+  background-image: url('../src/assets/Asset_1x1000.png');
+  animation: 3s ease-in-out infinite bgr-idle; */
 }
 .light-mode .bgr-animated {
   opacity: 2%;
+}
+
+.yt-container {
+  width: 60%;
+  height: fit-content;
+}
+
+/* Needed CSS for Lite Youtube Embed */
+.yt-lite {
+  background-color: #000;
+  position: relative;
+  display: block;
+  contain: content;
+  background-position: center center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* gradient */
+.yt-lite::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADGCAYAAAAT+OqFAAAAdklEQVQoz42QQQ7AIAgEF/T/D+kbq/RWAlnQyyazA4aoAB4FsBSA/bFjuF1EOL7VbrIrBuusmrt4ZZORfb6ehbWdnRHEIiITaEUKa5EJqUakRSaEYBJSCY2dEstQY7AuxahwXFrvZmWl2rh4JZ07z9dLtesfNj5q0FU3A5ObbwAAAABJRU5ErkJggg==);
+  background-position: top;
+  background-repeat: repeat-x;
+  height: 60px;
+  padding-bottom: 50px;
+  width: 100%;
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* responsive iframe with a 16:9 aspect ratio
+  thanks https://css-tricks.com/responsive-iframes/
+*/
+.yt-lite::after {
+  content: "";
+  display: block;
+  padding-bottom: calc(100% / (16 / 9));
+}
+.yt-lite > iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* play button */
+.yt-lite > .lty-playbtn {
+  width: 70px;
+  height: 46px;
+  background-color: #212121;
+  z-index: 1;
+  opacity: 0.8;
+  border-radius: 14%; /* TODO: Consider replacing this with YT's actual svg. Eh. */
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+.yt-lite:hover > .lty-playbtn {
+  background-color: #f00;
+  opacity: 1;
+}
+/* play button triangle */
+.yt-lite > .lty-playbtn:before {
+  content: '';
+  border-style: solid;
+  border-width: 11px 0 11px 19px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.yt-lite > .lty-playbtn,
+.yt-lite > .lty-playbtn:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/* Post-click styles */
+.yt-lite.lyt-activated {
+  cursor: unset;
+}
+.yt-lite.lyt-activated::before,
+.yt-lite.lyt-activated > .lty-playbtn {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Media Breakpoints */
@@ -321,7 +409,7 @@ nav h1, nav h2 {
     margin: 1rem;
   }
 
-  #content-container h3, #projects-container h3 {
+  .content-title, #projects-header {
     font-size: 1.7rem;
   }
   
@@ -373,6 +461,9 @@ nav h1, nav h2 {
     padding-right: 1rem;
   }
 
+  .nav-button {
+    transition: background-color .2s ease-in;
+  }
   .nav-button:hover {
     background-color: rgba(255, 255, 255, 0.7);
   }

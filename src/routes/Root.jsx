@@ -58,33 +58,41 @@ export default function Root({routeContent = 'landing'}) {
         return () => window.removeEventListener('resize', debouncedResize);
     }
 
+    // Pulls content for Contact page if navigated to via URl
+    useEffect(() => {
+            routeContent !== 'landing' && setActiveProject(routeContent);
+        }, [routeContent]);
 
-    useEffect(() => setActiveProject(routeContent), [routeContent]);
     useEffect(resizeWindow, []);
-    useEffect(() => params && setActiveProject(params.content), [params])
+
+    // Pulls content from URL params if those exist
+    useEffect(() => {
+            params.content && setActiveProject(params.content);
+        }, [params]);
 
     return (
         <>
             <nav>
-                <h1 onClick={(e) => {
+                <button id="nav-logo" aria-label="Home" onClick={(e) => {
                     setActiveProject("landing");
                     navigate("/");
-                 }}>Sean Stempler</h1>
+                 }}>Sean Stempler</button>
                 <div className="nav-tray">
                     {/* <button className="nav-button" onClick={(e) => setActiveProject('landing')}>About</button>
                     <button className="nav-button" onClick={(e) => setActiveProject('contact')}>Contact</button> */}
                     <button className="nav-button" onClick={(e) => {
-                        setActiveProject('landing');
-                        navigate("/");
+                            setActiveProject('landing');
+                            navigate("/");
                     }}>About</button>
-                    <button className="nav-button" onClick={(e) => {
-                        setActiveProject('contact');
-                        navigate("/contact");
+                    <button className="nav-button" 
+                        onClick={(e) => {
+                            setActiveProject('contact');
+                            navigate("/contact");
                     }}>Contact</button>
                 </div>
             </nav>
             <div id="main-container">
-                <Content content={activeProject} darkMode={darkMode}/>
+                <Content content={activeProject || routeContent} darkMode={darkMode}/>
                 <Projects content={activeProject} setActiveProject={setActiveProject} />
             </div>
             {/* <div id="testing-routes">

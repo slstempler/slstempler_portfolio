@@ -17,8 +17,9 @@ export function Projects({content = 'landing', setActiveProject}) {
 
     return (
         <div id="projects-container">
-            <h3>Projects & Works</h3>
-            <button id="reddit" className="projects-project" aria-label="RE:ddit Project Active Focus" onClick={(e) => {
+            <h2 id="projects-header">Projects & Works</h2>
+            <button id="reddit" className="projects-project" aria-label="RE:ddit Project Active Focus"
+                onClick={(e) => {
                     setActiveProject('reddit');
                     navigate("/projects/reddit");
                 }}>
@@ -26,7 +27,8 @@ export function Projects({content = 'landing', setActiveProject}) {
                 <i className="projects-description" >React + Redux + CSS</i>
             </button>
             <hr/>
-            <button id="commarch" className="projects-project" aria-label="commARCH Project Active Focus" onClick={(e) => {
+            <button id="commarch" className="projects-project" aria-label="commARCH Project Active Focus"
+                onClick={(e) => {
                     setActiveProject('commarch');
                     navigate("/projects/commarch");
                 }}>
@@ -34,7 +36,8 @@ export function Projects({content = 'landing', setActiveProject}) {
                 <i className="projects-description">Premiere + After Effects</i>
             </button>
             <hr/>
-            <button id="moasis" className="projects-project" aria-label="Moasis Project Active Focus" onClick={(e) => {
+            <button id="moasis" className="projects-project" aria-label="Moasis Project Active Focus"
+                onClick={(e) => {
                     setActiveProject('moasis');
                     navigate("/projects/moasis");
                 }}>
@@ -42,7 +45,8 @@ export function Projects({content = 'landing', setActiveProject}) {
                 <i className="projects-description">Photoshop + Illustrator + Celtra</i>
             </button>
             <hr/>
-            <button id="stempler-realty" className="projects-project" aria-label="Stempler Realty Project Active Focus" onClick={(e) => {
+            <button id="stempler-realty" className="projects-project" aria-label="Stempler Realty Project Active Focus" 
+                onClick={(e) => {
                     setActiveProject('stempler-realty');
                     navigate("/projects/stempler-realty");
                 }}>
@@ -50,13 +54,14 @@ export function Projects({content = 'landing', setActiveProject}) {
                 <i className="projects-description">Brand Identity + Logo Design</i>
             </button>
             <hr/>
-            <div id="portfolio-site" className="projects-project" aria-label="Portfolio Project Active Focus" onClick={(e) => {
+            <button id="portfolio-site" className="projects-project" aria-label="Portfolio Project Active Focus" 
+                onClick={(e) => {
                     setActiveProject('portfolio-site');
                     navigate("/projects/portfolio-site");
                 }}>
                 <p className="projects-title">This Website</p>
                 <i className="projects-description">React + CSS</i>
-            </div>
+            </button>
         </div>
     )
 }
