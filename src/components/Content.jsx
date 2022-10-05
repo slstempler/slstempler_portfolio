@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
-import redditScreenshot from "../assets/screenshot16958.png";
-import stemplerRealtyScreenshot from "../assets/main-darkx1000.png";
-import stemplerRealtyLight from "../assets/main-lightx1000.png"
-import moasisScreenshot from "../assets/greenland-sample-alpha.png"
+// import redditScreenshot from "../assets/screenshot16958.png";
+// import stemplerRealtyScreenshot from "../assets/main-darkx1000.png";
+// import stemplerRealtyLight from "../assets/main-lightx1000.png"
+// import moasisScreenshot from "../assets/greenland-sample-alpha.png"
 import { IconContext } from "react-icons";
 import { BsGithub, BsYoutube } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 
 
-// const redditScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/v1664901406/portfolio-2022/screenshot16958_nyq4tx.png';
-// const stemplerRealtyScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/v1664901405/portfolio-2022/main-lightx1000_wotwtm.png';
-// const stemplerRealtyLight = 'https://res.cloudinary.com/ddq3vhxki/image/upload/v1664901405/portfolio-2022/main-darkx1000_wogo51.png';
-// const moasisScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/v1664901405/portfolio-2022/greenland-sample-alpha_rlzlxd.png';
+const redditScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901406/portfolio-2022/screenshot16958_nyq4tx.png';
+const stemplerRealtyLight = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901405/portfolio-2022/main-lightx1000_wotwtm.png';
+const stemplerRealtyScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901405/portfolio-2022/main-darkx1000_wogo51.png';
+const moasisScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901405/portfolio-2022/greenland-sample-alpha_rlzlxd.png';
+
 
 export function Content({content, darkMode}) {
 
