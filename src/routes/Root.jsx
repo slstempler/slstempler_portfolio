@@ -5,7 +5,6 @@ import { BsGithub, BsLinkedin, BsBehance, BsSun, BsMoon } from 'react-icons/bs';
 import { IconContext } from 'react-icons'
 import { useNavigate, useParams } from "react-router-dom";
 import '../index.css'
-import BGRasset from "../assets/Asset_2x1000.png";
 
 function debounce(fn, ms) {
     let timer;
@@ -115,13 +114,6 @@ export default function Root({routeContent = 'landing'}) {
                     </IconContext.Provider>
                 </div>
             </footer>
-       
-            {/* <div className="bgr-animated"></div>
-            <div className="bgr-animated two"></div>
-            <div className="bgr-animated three"></div>
-            <div className="bgr-animated four"></div> */}
-            <img className="bgr-animated" src={BGRasset} alt="tiled background"></img>
-            {/* <div className="bgr-animated"></div> */}
         </>
     )
 }
