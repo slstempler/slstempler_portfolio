@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { IconContext } from "react-icons";
+import { FaHandPointUp } from "react-icons/fa";
 
 export function Projects({content = 'landing', setActiveProject}) {
     
@@ -18,14 +20,19 @@ export function Projects({content = 'landing', setActiveProject}) {
     return (
         <div id="projects-container">
             <h2 id="projects-header">Projects & Works</h2>
-            <button id="reddit" className="projects-project" aria-label="RE:ddit Project Active Focus"
-                onClick={(e) => {
-                    setActiveProject('reddit');
-                    navigate("/projects/reddit");
-                }}>
-                <p className="projects-title">RE:ddit - a Reddit Client</p>
-                <i className="projects-description" >React + Redux + CSS</i>
-            </button>
+            <div id="reddit-container">       
+                <button id="reddit" className="projects-project" aria-label="RE:ddit Project Active Focus"
+                    onClick={(e) => {
+                        setActiveProject('reddit');
+                        navigate("/projects/reddit");
+                    }}>
+                    <IconContext.Provider value={{size: "1.5em", className: "tutorial-animation"}}>
+                        <FaHandPointUp id="tutorial-animation-pointer"/>
+                    </IconContext.Provider>
+                    <p className="projects-title">RE:ddit - a Reddit Client</p>
+                    <i className="projects-description" >React + Redux + CSS</i>
+                </button>
+            </div>
             <hr/>
             <button id="commarch" className="projects-project" aria-label="commARCH Project Active Focus"
                 onClick={(e) => {

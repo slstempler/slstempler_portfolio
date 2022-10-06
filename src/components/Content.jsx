@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // import redditScreenshot from "../assets/screenshot16958.png";
 // import stemplerRealtyScreenshot from "../assets/main-darkx1000.png";
 // import stemplerRealtyLight from "../assets/main-lightx1000.png"
 // import moasisScreenshot from "../assets/greenland-sample-alpha.png"
 import { IconContext } from "react-icons";
 import { BsGithub, BsYoutube } from "react-icons/bs";
+import { FaChevronCircleDown } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 
@@ -18,10 +19,13 @@ const moasisScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_au
 export function Content({content, darkMode}) {
 
     const params = useParams();
+    const [isScrollable, setIsScrollable] = useState(false);
 
     const animateContent = () => {
+        const contentContainer = document.getElementById('content-container');
+
         // reset scroll
-        document.getElementById('content-container').scrollTop = 0;
+        contentContainer.scrollTop = 0;
 
         // toggle animations to relevant elements
         const contentTargets = document.getElementsByClassName('content-target');
@@ -33,6 +37,20 @@ export function Content({content, darkMode}) {
         }
     }
 
+    const checkScroll = () => {
+        const contentContainer = document.getElementById('content-container')
+
+        if(!contentContainer) return -1;
+        if (contentContainer.scrollHeight > contentContainer.clientHeight) {
+            console.log(`well... whaddya know... it can scroll...`);
+            setIsScrollable(true);
+        }
+        else {
+            setIsScrollable(false);
+        }
+    }
+
+    useEffect(checkScroll, [content, params]);
     useEffect(animateContent, [content]);
 
     return (
@@ -116,6 +134,14 @@ export function Content({content, darkMode}) {
                     <p className="content-target">email: slstempler@gmail.com<br />Skype: sean.stempler</p>
                 </>
             }
+            {isScrollable &&
+                <>
+                    <IconContext.Provider value={{size: '1.2em', className: 'content-inline scroll-indicator'}}>
+                        <FaChevronCircleDown />
+                    </IconContext.Provider>
+                 </>
+            }
+                
         </div>
     )
 }

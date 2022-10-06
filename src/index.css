@@ -56,6 +56,7 @@ code {
   max-height: 60%;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .content-title, #projects-header {
@@ -158,6 +159,30 @@ p.content-target, span.content-target {
   animation: 0.5s ease-in dissolvein;
 }
 
+#content-container .scroll-indicator {
+  position: absolute;
+  bottom: 0.2rem;
+  opacity: 0;
+  z-index: 2;
+  left: calc(50% - 0.6rem);
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.8));
+  animation: dissolveout 3s linear forwards;
+}
+
+@keyframes dissolveout {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 h1 {
   font-family: "Work Sans";
@@ -243,32 +268,7 @@ nav {
 }
 
 
-/* Background Textures + Animation */
-/* @keyframes bgr-idle {
-  50% {
-    transform: translate(10px, 10px);
-  }
-  100% {
-    transform: translate(0px, 0px); 
-  }
-} */
-.bgr-animated {
-  display: none;
-  z-index: -1;
-  opacity: 25%;
-  position: absolute;
-  width: 100%;
-  /* width: 100vw;
-  height: 100vh;
-  height: 50px;
-  width: 50px;
-  background-color: blue; 
-  background-image: url('../src/assets/Asset_1x1000.png');
-  animation: 3s ease-in-out infinite bgr-idle; */
-}
-.light-mode .bgr-animated {
-  opacity: 2%;
-}
+/* YT +  Facade */
 
 .yt-container {
   width: 60%;
@@ -357,7 +357,58 @@ nav {
   pointer-events: none;
 }
 
+#reddit-container {
+  position: relative;
+}
+#tutorial-animation-pointer {
+  color: white;
+  position: absolute;
+  transform: rotate(-25deg);
+  opacity: 0;
+  top: 0.8em;
+  right: 40%;
+  z-index: 2;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.8));
+  animation: tutorial 2.5s 0.5s linear forwards;
+}
+.light-mode #tutorial-animation-pointer {
+  color: rgba(0, 0, 0, 0.795)
+}
+/* Animation for Mobile Tutorial */
+@keyframes tutorial {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(-70px) rotate(-25deg);
+  }
+  60% {
+    transform: translateX(-70px) rotate(-25deg);
+  }
+  62% {
+    transform: translateX(-70px) rotate(-38deg);
+  }
+  65% {
+    transform: translateX(-70px) rotate(-25deg);
+  }
+  85% {
+    transform: translateX(-70px) rotate(-25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-90px) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
 /* Media Breakpoints */
+@media screen and (orientation: landscape) and (max-width: 768px) {
+
+}
+
 @media screen and (min-width: 768px) {
   /* .styled-scrollbar {
     --scrollbar-foreground: rgba(255,255,255,0.9);
@@ -388,7 +439,18 @@ nav {
     width: 30rem;
     height: 16rem;
   }
+
+  #tutorial-animation-pointer {
+    left: 25%;
+  }
+
+  .projects-project:hover {
+    cursor: pointer;
+  }
+
 }
+
+
 
 @media screen and (min-width: 1024px) {
   nav h1 {
@@ -415,27 +477,14 @@ nav {
   
   #projects-container .projects-project {
     font-size: 1.1rem;
-    transition: text-shadow 1s ease-in-out;
+    transition: text-shadow 0.5s ease-in-out;
   }
 
   #projects-container .projects-project:hover {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-    /* animation: textglow 1s ease-in-out forwards; */
+    text-shadow: 0 0 20px #FFF;
   }
   .light-mode #projects-container .projects-project:hover {
     text-shadow: 0 0 20px rgba(25, 25, 25, 0.9);
-  }
-
-  @keyframes textglow {
-    0% {
-      text-shadow: 0 0 0 #fff;
-    }
-    25% {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
-    }
-    100% {
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-    }
   }
 
   #content-container a {
@@ -477,4 +526,15 @@ nav {
     max-width: 95%;
   }
 
+  #tutorial-animation-pointer {
+    display: none;
+  }
+
+}
+
+/* ensures containers are scrollable on all mobile screens */
+@media screen and (hover: none) and (pointer: coarse) {
+  #content-container, #projects-container {
+    overflow-y: scroll;
+  }
 }
