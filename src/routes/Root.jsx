@@ -6,7 +6,7 @@ import { IconContext } from 'react-icons'
 import { useNavigate, useParams } from "react-router-dom";
 import '../index.css'
 
-function debounce(fn, ms) {
+export function debounce(fn, ms) {
     let timer;
     return () => { 
       clearTimeout(timer);

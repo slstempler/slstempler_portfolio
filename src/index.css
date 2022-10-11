@@ -39,26 +39,36 @@ code {
   border: 1px solid white;
   width: 90%;
   margin: 0px auto;
-  overflow-y: scroll;
   padding: 0.5rem;
 }
+#projects-container, #content-wrapper {
+  overflow-y: scroll;
+}
+
 .light-mode #content-container, .light-mode #projects-container {
   border-color: black;
 }
 
 #projects-container {
-  max-height: 40%;
   margin-bottom: 1rem;
+  min-height: 40%;
+  max-height: 100%;
 }
 
 #content-container {
   display: flex;
-  max-height: 60%;
   flex-direction: column;
   align-items: center;
   position: relative;
+  min-height: 40%;
+  max-height: 100%;
 }
 
+#content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .content-title, #projects-header {
   margin-top: 0.2rem;
   margin-left: 0.2rem;
@@ -161,21 +171,18 @@ p.content-target, span.content-target {
 
 #content-container .scroll-indicator {
   position: absolute;
-  bottom: 0.2rem;
-  opacity: 0;
+  bottom: 1rem;
+  opacity: 1;
   z-index: 2;
   left: calc(50% - 0.6rem);
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.8));
-  animation: dissolveout 3s linear forwards;
+}
+
+.fadeout {
+    animation: dissolveout 1s linear forwards;
 }
 
 @keyframes dissolveout {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
   75% {
     opacity: 1;
   }
@@ -273,6 +280,7 @@ nav {
 .yt-container {
   width: 60%;
   height: fit-content;
+  margin: 0px auto;
 }
 
 /* Needed CSS for Lite Youtube Embed */
@@ -466,9 +474,11 @@ nav {
     border-width: 2px;
     width: 47%;
     max-height: 100%;
-    overflow-y: initial;
     padding: 0.5rem;
     margin: 1rem;
+  }
+  #content-wrapper, #projects-container {
+    overflow-y: initial;
   }
 
   .content-title, #projects-header {
