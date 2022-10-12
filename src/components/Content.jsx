@@ -63,7 +63,7 @@ export function Content({content, darkMode}) {
 
                     setTimeout(() => {
                         if(scrollIndicator) scrollIndicator.style.display = 'none'
-                    }, 2000);
+                    }, 3000);
                 }
         }, 100);
 
@@ -88,7 +88,8 @@ export function Content({content, darkMode}) {
                 {(content === 'reddit' || params === 'reddit') && 
                     <>
                         <h2 className="content-target content-title">RE:ddit</h2>
-                        <a href="https://re-ddit.netlify.app/" target="_blank" rel="noreferrer"><img className="content-image content-target" src={redditScreenshot} alt="project screenshot"></img></a>
+                        <a href="https://re-ddit.netlify.app/" target="_blank" rel="noreferrer" className="hero-anchor">
+                            <img className="content-image content-target" src={redditScreenshot} alt="project screenshot"></img></a>
                         <p className="content-target">Built as part of coursework for the Codecademy Front End Development syllabus, RE:ddit is a lightweight Reddit client built to offer an alternative UI. RE:ddit utilizes React as its core framework along with SPA structure built upon React Router, and expands upon this base with Redux to manage state.</p>
                         <IconContext.Provider value={{size: '1.5em', className: 'content-target'}} >
                             <a href="https://github.com/slstempler/reddit_react-redux" target="blank" rel="noreferrer" className="repo-link" aria-label="RE:ddit Github Repo"><BsGithub /></a>
@@ -119,7 +120,7 @@ export function Content({content, darkMode}) {
                 {(content === 'stempler-realty' || params === 'stempler-realty') &&
                     <>
                         <h2 className="content-target content-title">Stempler Realty Group</h2>
-                        <a href="https://www.beangroup.com/agents/1186124/Lisa+Stempler" target="_blank" rel="noreferrer">
+                        <a href="https://www.beangroup.com/agents/1186124/Lisa+Stempler" target="_blank" rel="noreferrer" className="hero-anchor">
                             <img className="content-image content-target" src={darkMode ? stemplerRealtyScreenshot : stemplerRealtyLight} alt="project screenshot" height="150">
                         </img></a> 
                         <p className="content-target">Design work including brand identity and logo design for a local New England realty team. Worked alongside clients to develop brand from scratch and helped produce assets for use on both digial applications like social media and physical applications like open house signs and business cards.</p>
@@ -128,8 +129,8 @@ export function Content({content, darkMode}) {
                 {(content === 'moasis' || params === 'moasis') &&
                     <>
                         <h2 className="content-target content-title">Moasis Global</h2>
-                        <a href="https://moasis.com/" target="_blank" rel="noreferrer"><img className="content-image content-target"
-                            src={moasisScreenshot} alt="project screenshot">
+                        <a href="https://moasis.com/" target="_blank" rel="noreferrer" className="hero-anchor">
+                            <img className="content-image content-target" src={moasisScreenshot} alt="project screenshot">
                         </img></a>
                         <p className="content-target">Design work with a variety of clients working with a mobile advertising geolocation services provider.
                             Built interactive ad creative packages including Rich Media and video for a wide variety of formats targeted at both mobile and tablet. Clients ranged
@@ -154,8 +155,10 @@ export function Content({content, darkMode}) {
                 {(content === 'contact' || params === 'contact') && 
                     <>
                         <h2 className="content-target content-title">Contact Info</h2>
-                        <p className="content-target">Feel free to reach out to discuss potential projects or roles that I may be a good fit for!</p>
-                        <p className="content-target">email: slstempler@gmail.com<br />Skype: sean.stempler</p>
+                        <p className="content-target">Feel free to reach out to discuss potential projects or roles that I may be a good fit for!</p><br />
+                        <a href="mailto:slstempler@gmail.com" className="content-target">email: slstempler@gmail.com</a>
+                        <span className="content-target">Skype:  sean.stempler</span>
+                        <a href="https://linkedin.com/in/slstempler" className="content-target">LinkedIn Profile</a>
                     </>
                 }
             </div>
