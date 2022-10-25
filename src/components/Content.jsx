@@ -123,7 +123,7 @@ export function Content({content, darkMode}) {
                         <a href="https://www.beangroup.com/agents/1186124/Lisa+Stempler" target="_blank" rel="noreferrer" className="hero-anchor">
                             <img className="content-image content-target" src={darkMode ? stemplerRealtyScreenshot : stemplerRealtyLight} alt="project screenshot" height="150">
                         </img></a> 
-                        <p className="content-target">Design work including brand identity and logo design for a local New England realty team. Worked alongside clients to develop brand from scratch and helped produce assets for use on both digial applications like social media and physical applications like open house signs and business cards.</p>
+                        <p className="content-target">Design work including brand identity and logo design for a local New England realty team. Worked alongside clients to develop brand from scratch and helped produce assets for use on both digital applications like social media and physical applications like open house signs and business cards.</p>
                     </>
                 }
                 {(content === 'moasis' || params === 'moasis') &&
