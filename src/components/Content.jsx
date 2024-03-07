@@ -12,10 +12,11 @@ import { debounce } from "../routes/Root.jsx";
 
 
 const redditScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901406/portfolio-2022/screenshot16958_nyq4tx.png';
-const stemplerRealtyLight = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901405/portfolio-2022/main-lightx1000_wotwtm.png';
-const stemplerRealtyScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901405/portfolio-2022/main-darkx1000_wogo51.png';
+const trilogyRealtyLight = 'https://res.cloudinary.com/ddq3vhxki/image/upload/v1709849242/portfolio-2022/black-bg-1000_v2gozd.png';
+const trilogyRealtyScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/v1709849243/portfolio-2022/white-bg-1000_pev5ee.png';
 const moasisScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901405/portfolio-2022/greenland-sample-alpha_rlzlxd.png';
-
+const tysonScreenshot = `https://res.cloudinary.com/ddq3vhxki/image/upload/v1709847258/portfolio-2022/tyson-screens_zcimy4.png`
+const pebblesScreenshot = `https://res.cloudinary.com/ddq3vhxki/image/upload/v1709848692/portfolio-2022/pebbles-screens_jjhjq5.png`
 
 export function Content({content, darkMode}) {
 
@@ -85,6 +86,24 @@ export function Content({content, darkMode}) {
                         <p className="content-target">Hi! I'm Sean, and I work to transform creative visions into creative realities. My varied background reaches everything from video editing to web design and everything in between, so I have the toolkit to tackle the needs of just about any project.</p>
                     </>
                 }
+                {(content === 'aki-tyson' || params === 'aki-tyson') &&
+                    <>
+                        <h2 className="content-target content-title">Aki Technologies - Tyson Foods</h2>
+                        <a href="https://creative.akitechnologies.net/preview/a8ae4fd1#overrides.deviceInfo.deviceType=Phone&ruleBasedFeedRadio%5Be07be279%5D=actual&placementWidth=390&placementHeight=auto" target="_blank" rel="noreferrer" className="hero-anchor">
+                            <img className="content-image content-target" src={tysonScreenshot} alt="project screenshot">
+                        </img></a>
+                        <p className="content-target">A premier retailer specializing in denim engaged my team to build a dynamic rich media unit capable of offering live NFL scores alongside a carousel of product shots and an expandable store locator. With data from sports-focused API, I developed a JavaScript-based core for the unit which delivered live game information to any user. This JS script assisted in state management and animation, and enabled the unit to be handled fully dynamically even across a constantly variable schedule for the NFL season, and across both English and Spanish variants; even while a game is offline, the next game’s time is displayed. Along with this functionality, the unit was designed to accommodate the other rich media needs mentioned above alongside the scoreboard, showcasing the denim products and tying their brand identity to the NFL. With their interest now primed, users can - without leaving the unit - open the animated store locator to navigate towards the retail location nearest them.</p>
+                    </>
+                }
+                {(content === 'aki-pebbles' || params === 'aki-pebbles') &&
+                    <>
+                        <h2 className="content-target content-title">Aki Technologies - Pebbles Waffles</h2>
+                        <a href="https://creative.akitechnologies.net/preview/47cb3ee0#overrides.deviceInfo.deviceType=Phone&placementWidth=390&placementHeight=auto" target="_blank" rel="noreferrer" className="hero-anchor">
+                            <img className="content-image content-target" src={pebblesScreenshot} alt="project screenshot">
+                        </img></a>
+                        <p className="content-target">A major CPG brand with a line of cartoon-licensed waffles sought a fresh and exciting ad creative to highlight their two major lines of offerings. To emphasize their playful and family-oriented brand identity and highlight the core selling point of their waffles, I developed a catch-falling-items game. This game not only aids user engagement but offers a brand-building twist: users must select which of the two core product lines they wish to use in the game. This allows a bit of personal expression for users, adds to replayability - the visuals change depending on the product line chosen - and helps to reinforce the value proposition of the waffles by placing focus on the density of tasty cereal flakes packed into each pastry.</p>
+                    </>
+                }
                 {(content === 'reddit' || params === 'reddit') && 
                     <>
                         <h2 className="content-target content-title">RE:ddit</h2>
@@ -117,11 +136,11 @@ export function Content({content, darkMode}) {
                         </IconContext.Provider>
                     </>
                 }
-                {(content === 'stempler-realty' || params === 'stempler-realty') &&
+                {(content === 'trilogy-realty' || params === 'trilogy-realty') &&
                     <>
-                        <h2 className="content-target content-title">Stempler Realty Group</h2>
+                        <h2 className="content-target content-title">Trilogy Realty Group</h2>
                         <a href="https://www.beangroup.com/agents/1186124/Lisa+Stempler" target="_blank" rel="noreferrer" className="hero-anchor">
-                            <img className="content-image content-target" src={darkMode ? stemplerRealtyScreenshot : stemplerRealtyLight} alt="project screenshot" height="150">
+                            <img className="content-image content-target" src={darkMode ? trilogyRealtyScreenshot : trilogyRealtyLight} alt="project screenshot" height="150">
                         </img></a> 
                         <p className="content-target">Design work including brand identity and logo design for a local New England realty team. Worked alongside clients to develop brand from scratch and helped produce assets for use on both digital applications like social media and physical applications like open house signs and business cards.</p>
                     </>
