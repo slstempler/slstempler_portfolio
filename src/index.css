@@ -550,6 +550,9 @@ nav {
     display: none;
   }
 
+  #aki-tyson-description {
+    font-size: 0.95rem;
+  }
 }
 
 /* ensures containers are scrollable on all mobile screens */
