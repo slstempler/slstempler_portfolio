@@ -37,7 +37,23 @@ export function Projects({content = 'landing', setActiveProject}) {
                         setActiveProject('aki-pebbles');
                         navigate("/projects/aki-pebbles");
                     }}>
-                    <p className="projects-title">Rich Media Gamified: Pebbles Waffles</p>
+                    <p className="projects-title">Gamified Frozen Foods: Pebbles Waffles</p>
+                </button>
+                <br/>
+                <button id="aki-takeRoot" className="projects-project" aria-label="Aki-takeRoot Project Active Focus"
+                    onClick={(e) => {
+                        setActiveProject('aki-takeRoot');
+                        navigate("/projects/aki-takeRoot");
+                    }}>
+                    <p className="projects-title">Rich Media Expandable: Take Root Organics (Del Monte)</p>
+                </button>
+                <br/>
+                <button id="aki-skittles" className="projects-project" aria-label="Aki-Pebbles Project Active Focus"
+                    onClick={(e) => {
+                        setActiveProject('aki-skittles');
+                        navigate("/projects/aki-skittles");
+                    }}>
+                    <p className="projects-title">Animated Interstitial: Skittles + Circle K</p>
                 </button>
                 <hr/>
                 <button id="moasis" className="projects-project" aria-label="Moasis Project Active Focus"

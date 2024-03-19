@@ -15,8 +15,12 @@ const redditScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_au
 const trilogyRealtyLight = 'https://res.cloudinary.com/ddq3vhxki/image/upload/v1709849242/portfolio-2022/black-bg-1000_v2gozd.png';
 const trilogyRealtyScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/v1709849243/portfolio-2022/white-bg-1000_pev5ee.png';
 const moasisScreenshot = 'https://res.cloudinary.com/ddq3vhxki/image/upload/f_auto/v1664901405/portfolio-2022/greenland-sample-alpha_rlzlxd.png';
-const tysonScreenshot = `https://res.cloudinary.com/ddq3vhxki/image/upload/v1709847258/portfolio-2022/tyson-screens_zcimy4.png`
-const pebblesScreenshot = `https://res.cloudinary.com/ddq3vhxki/image/upload/v1709848692/portfolio-2022/pebbles-screens_jjhjq5.png`
+const tysonScreenshot = `https://res.cloudinary.com/ddq3vhxki/image/upload/v1709847258/portfolio-2022/tyson-screens_zcimy4.png`;
+const pebblesScreenshot = `https://res.cloudinary.com/ddq3vhxki/image/upload/v1709848692/portfolio-2022/pebbles-screens_jjhjq5.png`;
+const takeRootScreenshot = `https://res.cloudinary.com/ddq3vhxki/image/upload/v1710818564/takeRoot-screens_el934l.png`;
+const skittlesScreenshot = `https://res.cloudinary.com/ddq3vhxki/image/upload/v1710818564/skittles-screens_hmd5mo.png`;
+
+
 
 export function Content({content, darkMode}) {
 
@@ -83,7 +87,7 @@ export function Content({content, darkMode}) {
                 {(content === 'landing' || params === 'landing' || content === undefined) &&
                     <>
                         <h2 className="content-target content-title">Sean Stempler</h2>
-                        <p className="content-target">Hi! I'm Sean, and I work to transform creative visions into creative realities. My varied background reaches everything from video editing to web design and everything in between, so I have the toolkit to tackle the needs of just about any project.</p>
+                        <p className="content-target">Hi! I'm Sean, and I work to transform creative visions into creative realities. My varied background reaches everything from video editing to web design and everything in between, so I have the toolkit to tackle the needs of just about any project. <br/><br/>I'm a designer with years of experience working in mobile, digital, and print media. I'm excited to bring my design background to the table in tandem with a wide front-end development skillset to deliver innovative projects from inception to final publication. I've worked with several startups to build their brands from the ground up and assisted diverse client bases at all scales of business.</p>
                     </>
                 }
                 {(content === 'aki-tyson' || params === 'aki-tyson') &&
@@ -102,6 +106,25 @@ export function Content({content, darkMode}) {
                             <img className="content-image content-target" src={pebblesScreenshot} alt="project screenshot">
                         </img></a>
                         <p className="content-target">A major CPG brand with a line of cartoon-licensed waffles sought a fresh and exciting ad creative to highlight their two major lines of offerings. To emphasize their playful and family-oriented brand identity and highlight the core selling point of their waffles, I developed a catch-falling-items game. This game not only aids user engagement but offers a brand-building twist: users must select which of the two core product lines they wish to use in the game. This allows a bit of personal expression for users, adds to replayability - the visuals change depending on the product line chosen - and helps to reinforce the value proposition of the waffles by placing focus on the density of tasty cereal flakes packed into each pastry.</p>
+                    </>
+                }
+                {(content === 'aki-takeRoot' || params === 'aki-takeRoot') &&
+                    <>
+                        <h2 className="content-target content-title">Aki Technologies - Take Root Organics (Del Monte)</h2>
+                        <a href="https://creative.akitechnologies.net/preview/9d764838#overrides.deviceInfo.deviceType=Phone&placementWidth=390&placementHeight=auto" target="_blank" rel="noreferrer" className="hero-anchor">
+                            <img className="content-image content-target" src={takeRootScreenshot} alt="project screenshot">
+                        </img></a>
+                        <p className="content-target">A major canned foods manufacturer engaged my team to help develop their sub-brand of organic tomato products. In early campaign discussions, core branding concerns emerged surrounding value proposition to consumers and overall positioning. To best handle these concerns and offer additional unit value and functionality, I produced expandable rich media units which displayed distinct messaging and product imagery depending on the user’s location: one general-purpose unit, and a dynamic variant that appeared during cold weather. <br/><br/>The cold-weather unit contained a JavaScript-powered thermostat to emphasize the conditions alongside relevant copy. Both units open on animated mobile banners showcasing highlighted product offerings before prompting the viewer to explore the expanded stage. When clicked, the full-screen interstitial displayed a rotating gallery of dishes, each tied to a specific product and click-to-cart CTA. All acting in concert, the unit provides a compelling case for each tomato product and offers a convenient off-ramp for consumers looking to shop for tonight’s dinner. 
+</p>
+                    </>
+                }
+                {(content === 'aki-skittles' || params === 'aki-skittles') &&
+                    <>
+                        <h2 className="content-target content-title">Aki Technologies - Skittles + Circle K</h2>
+                        <a href="https://creative.akitechnologies.net/preview/ea77a6e9#overrides.deviceInfo.deviceType=Phone&placementWidth=390&placementHeight=auto" target="_blank" rel="noreferrer" className="hero-anchor">
+                            <img className="content-image content-target" src={skittlesScreenshot} alt="project screenshot">
+                        </img></a>
+                        <p className="content-target">In partnership with a nationwide convenience store chain, a major international manufacturer of snacks and candy sought my team’s capabilities to deliver a fresh creative to highlight a new promotional offer alongside existing product lines. The only technical need of this creative was a store locator, which made this unit a great opportunity for honing in on presentation. On load, drinks slide in from off frame alongside copy and a CTA, and pause to receive a shower of candy pieces - emphasizing the contents of the drinks and keeping the creative’s energy playful -  before continuing their slide to their final position. Those beverages are joined by product shots and headline copy, each element animated to keep overall energy high and the mood light and exciting. This unit was eventually publicly recognized for its animation, with a particular shoutout from the client for the raining candy effect.</p>
                     </>
                 }
                 {(content === 'reddit' || params === 'reddit') && 

@@ -69,6 +69,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 100%;
 }
 .content-title, #projects-header {
   margin-top: 0.2rem;
@@ -550,8 +551,12 @@ nav {
     display: none;
   }
 
-  #aki-tyson-description {
-    font-size: 0.95rem;
+  #projects-container, #content-container {
+    overflow-y: scroll;
+  }
+
+  #scroll-indicator {
+    display: none;
   }
 }
 
