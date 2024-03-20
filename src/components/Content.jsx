@@ -197,9 +197,9 @@ export function Content({content, darkMode}) {
                     <>
                         <h2 className="content-target content-title">Contact Info</h2>
                         <p className="content-target">Feel free to reach out to discuss potential projects or roles that I may be a good fit for!</p><br />
-                        <a href="mailto:slstempler@gmail.com" className="content-target">email: slstempler@gmail.com</a>
+                        <a href="mailto:slstempler@gmail.com" className="content-target contact-links">email: slstempler@gmail.com</a>
                         <span className="content-target">Skype:  sean.stempler</span>
-                        <a href="https://linkedin.com/in/slstempler" className="content-target">LinkedIn Profile</a>
+                        <a href="https://linkedin.com/in/slstempler" className="content-target contact-links">LinkedIn Profile</a>
                     </>
                 }
             </div>

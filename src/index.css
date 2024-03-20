@@ -386,9 +386,22 @@ nav {
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.8));
   animation: tutorial 2.5s 0.5s linear forwards;
 }
+
 .light-mode #tutorial-animation-pointer {
   color: rgba(0, 0, 0, 0.795)
 }
+
+.contact-links {
+  color: rgb(146, 182, 244);
+}
+.contact-links:visited {
+  color: rgb(227, 127, 248);
+}
+
+.light-mode .contact-links {
+  color:initial;
+}
+
 /* Animation for Mobile Tutorial */
 @keyframes tutorial {
   0% {
