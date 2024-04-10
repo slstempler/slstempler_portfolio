@@ -156,6 +156,7 @@ p.content-target, span.content-target, a.content-target, svg.content-target {
 #content-container .hero-anchor {
   display: flex;
   justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .content-inline {
@@ -272,6 +273,7 @@ nav {
   align-items: center;
   transition: background-color .7s ease-in-out;
   transition: color .8s ease-out;
+  text-decoration: none;
 }
 .light-mode .nav-button {
   border-color: black;
@@ -281,6 +283,9 @@ nav {
   transition: color .8s ease-out;
 }
 
+.project-link {
+  margin: 0.5rem;
+}
 
 /* YT +  Facade */
 
